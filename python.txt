@@ -1,3 +1,6 @@
+https://www.online-python.com/
+https://onlinegdb.com
+
 Paradigma de programação
 orientada a objetos
 Interpretada
