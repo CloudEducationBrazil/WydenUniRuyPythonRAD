@@ -1,0 +1,70 @@
+# 1. ETL
+import pandas as pd
+entidade = pd.read_csv('sample_data/california.csv', sep=',')
+display(entidade)
+
+# 2. Ajuste de Dados (Preparação da base - limpeza)
+print(entidade.info())
+#entidade.head()
+
+# 3. analise explaratoria
+
+# display(entidade.corr())
+#correlacao = entidade.corr()
+#display(correlacao)
+correlacao2 = entidade.corr()[['population']] 
+display(correlacao2[['population']])
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.heatmap(correlacao2, cmap='Blues', annot=True) # criar o gráfico
+plt.show() #exibir o gráfico
+
+# 4 Modelagem + Algoritmo = talvez IA dividir a base em x e y
+y = entidade['population']
+# axis = 0 , linhas e axis = 1, colunas
+x = entidade.drop('population', axis=1)
+
+from sklearn.model_selection import train_test_split
+
+x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.3, random_state=1)
+
+# 5. IA
+
+# Importar a IA
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+
+# criar a IA
+modelo_regressaolinear = LinearRegression()
+modelo_arvoredecisao = RandomForestRegressor()
+
+# treinar a IA
+modelo_regressaolinear.fit(x_treino, y_treino)
+modelo_arvoredecisao.fit(x_treino, y_treino)
+
+RandomForestRegressor()
+
+# 6. escolher o melhor modelo R2
+from sklearn.metrics import r2_score
+
+previsao_regressaolinear = modelo_regressaolinear.predict(x_teste)
+previsao_arvoredecisao = modelo_arvoredecisao.predict(x_teste)
+
+print(r2_score(y_teste, previsao_regressaolinear))
+print(r2_score(y_teste, previsao_arvoredecisao))
+
+# 7. Previsões
+entidade_aux = pd.DataFrame()
+entidade_aux['y_teste'] = y_teste
+entidade_aux['ArvoreDecisao'] = previsao_arvoredecisao
+entidade_aux['RegressaoLinear'] = previsao_regressaolinear
+
+sns.lineplot(data=entidade_aux)
+plt.show()
+
+# 8. Fazer Previsões
+entidade_nova = pd.read_csv('sample_data/california2.csv', sep=',')
+display(entidade_nova)
+previsao = modelo_arvoredecisao.predict(entidade_nova)
+print(previsao)
