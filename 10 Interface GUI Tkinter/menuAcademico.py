@@ -1,18 +1,14 @@
 # https: // docs.python.org/pt-br/dev/library/tkinter.html
 
 # Interface Gráfica:
-# Passos: 1. Importar a bib tkinter; 2. Criar uma função; 3. Criar a janela utilizando o tkinter
+# Passos: 1. Importar a bib tkinter; 2. Criar uma função que será utilizada pelo app (janela); 3. Criar a janela utilizando o tkinter
 # 4. Invocar uma função
 
 from tkinter import *
-#from tkinter import ttk
-
 import os
-
 
 def semComando():
     pass
-
 
 app = Tk()
 app.title('Sistema Acadêmico Yduqs')
@@ -40,10 +36,11 @@ barraDeMenu.add_cascade(label="Sobre")
 
 app.config(menu=barraDeMenu)
 
+#from tkinter import ttk
 #listEsportes = ["Futebol", "Basquete"]
 #lbEsportes = Label(app, text="Esportes")
-# lbEsportes.pack()
+#lbEsportes.pack()
 #cb_esportes = ttk.Combobox(app, values=listEsportes)
-# cb_esportes.set("Futebol")
-# cb_esportes.pack()
+#cb_esportes.set("Futebol")
+#cb_esportes.pack()
 app.mainloop()
