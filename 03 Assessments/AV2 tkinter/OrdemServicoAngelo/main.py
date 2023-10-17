@@ -1,8 +1,8 @@
 # https://github.com/A21n13g0/Ordem-de-Servico
 # Angelo - Python RAD - Professor Heleno Cardoso (22/11/2022)
 # Import do tkinter e tkcalendar
-# pip install tkcalendar 
-# pip3 install tkcalendar
+# pip install tkcalendar (Windows)
+# pip3 install tkcalendar (Linux)
 # python.exe -m pip install --upgrade pip
 # virtualenv(para Python 2) ou venv, possivelmente via poetry, (para Python 3).
 
@@ -94,7 +94,6 @@ entry_value = Entry(frame_base, width=45, justify='left', relief='solid')
 entry_value.place(x=15, y=290)
 
 # frame right - Exibir registros
-
 
 def show():
     global tree
