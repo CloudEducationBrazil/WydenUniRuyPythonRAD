@@ -7,7 +7,7 @@ conn = None
 try:
     # Objeto de conexão
     conn = mysql.connector.connect(
-        host="localhost", database="coursejdbc", user="developer", password="12")
+        host="localhost", database="vendas", user="root", password="1234")
     if conn.is_connected():
         print("conectado")
         print(conn.get_server_info())
@@ -18,14 +18,14 @@ try:
     print("conectado ao banco de dados: ", linha)
 
     #cursor = conn.cursor()
-    nome = "pessoallll"
-    sql = f"insert into department (Name) values ('{nome}')"
+    nome = "Nome fulano de tal"
+    sql = f"insert into tb_sellers (Name) values ('{nome}')"
     cursor.execute(sql)
     conn.commit()
     print("Inserido com sucesso")
 
     nome = "recursos humanos"
-    sql = f"update department set Name = '{nome}' where Id = 63"
+    sql = f"update tb_sellers set Name = '{nome}' where Id = 63"  # escolher um id do BD da tab.
     cursor.execute(sql)
     conn.commit()
     print("Atualizado com sucesso")

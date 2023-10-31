@@ -7,8 +7,7 @@
 from pip._vendor import requests
 from tkinter import *
 import os
-import bancoAlunos
-
+import dmlBDGenerica
 
 def listar():
     os.system('cls')
@@ -16,7 +15,6 @@ def listar():
     print('Telefone:%s' % vTelefone.get())
     print('E-mail:%s' % vEmail.get())
     print('Obs:%s' % vObs.get("1.0", END))
-
 
 def gerarTXT():
     pastaApp = os.path.dirname(__file__)
@@ -29,7 +27,6 @@ def gerarTXT():
     arqAlu.write('\nObs:%s' % vObs.get("1.0", END))
     arqAlu.write('\n')
     arqAlu.close()
-
 
 def inserirAluno():
     if vNome.get() != "":
@@ -50,7 +47,6 @@ def inserirAluno():
         print('Dados gravados com sucesso ...')
     else:
         print('Erro na inclusão dos dados!!!')
-
 
 app = Tk()
 app.title('Cadastro de Alunos')
@@ -91,7 +87,7 @@ Label(
 vObs = Text(app)
 vObs.place(x=10, y=190, width=300, height=80)
 
-Button(app, text="Imprimir",
+Button(app, text="Listar",
        command=listar).place(x=10, y=290, width=100, height=20)
 
 Button(app, text="Gerar TXT",
