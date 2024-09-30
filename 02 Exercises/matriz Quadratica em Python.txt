@@ -1,0 +1,44 @@
+def entradaDados(m):
+    for l in range(qtdLin):
+        vetor = []
+        for c in range(qtdCol):
+            elemento = int(input (f'Informe Elemento [{l},{c}]: '))
+            vetor.append(elemento)
+        m.append(vetor)
+
+def procDados(m):
+    global dp, ds
+    for l in range(qtdLin):
+        for c in range(qtdCol):
+            if ( l == c ):
+                dp = dp + m[l][c]
+
+            if ( l + c == qtdLin - 1):
+                ds = ds + m[l][c]
+
+def saidaDados():
+  print(m)
+  print(dp, ds, dp - ds)
+
+
+# Calculo Matriz Ordem 3 x 3
+m = []
+qtdLin = 3
+qtdCol = 3
+dp = 0
+ds = 0
+
+entradaDados(m)
+procDados(m)
+saidaDados()
+
+# Calculo Matriz Ordem 2
+m = []
+qtdLin = 2
+qtdCol = 2
+dp = 0
+ds = 0
+
+entradaDados(m)
+procDados(m)
+saidaDados()
