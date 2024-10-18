@@ -1,0 +1,9 @@
+https://pythonclub.com.br/gerenciando-banco-dados-sqlite3-python-parte1.html
+
+extensões no vscode
+
+sqlite
+code runner
+vscode icons
+
+ctrl + shift + p no editor = open db sqlite
