@@ -1,0 +1,5 @@
+Dependências:
+      pip install Flask Flask-SQLAlchemy mysql-connector-python
+
+Acessar a aplicação: Operações CRUD na tabela departamento.
+      http://127.0.0.1:5000/

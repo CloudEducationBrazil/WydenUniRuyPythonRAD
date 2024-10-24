@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos</title>
+</head>
+<body>
+    <h1>Lista de Departamentos</h1>
+    <a href="{{ url_for('departamento.create') }}">Adicionar Departamento</a>
+    <ul>
+        {% for departamento in departamentos %}
+        <li>
+            {{ departamento.nome }}
+            <a href="{{ url_for('departamento.edit', id=departamento.id) }}">Editar</a>
+            <form action="{{ url_for('departamento.delete', id=departamento.id) }}" method="POST" style="display:inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
