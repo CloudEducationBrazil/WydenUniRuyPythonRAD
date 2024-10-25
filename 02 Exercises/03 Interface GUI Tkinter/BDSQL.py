@@ -1,13 +1,27 @@
 # pip install mysql-connector
-import mysql.connector
+# pip install mysql-connector-python
+# pip install python-dotenv
+
+import os
+from dotenv import load_dotenv
+import mysql.connector 
 from mysql.connector import Error
 
-conn = None
+load_dotenv()
+
+conn = None 
 # tratamento d exceção = erro
 try:
-    # Objeto de conexão
-    conn = mysql.connector.connect(
-        host="localhost", database="vendas", user="root", password="1234")
+    # Objeto de conexão // mysql+mysqlconnector://root:5555@localhost:3305
+    # os.getenv("HOST"), os.getenv("DATABASE"), os.getenv("USERNAME"), os.getenv("PASSWD")
+    # os.getenv("host"), os.getenv("database"), os.getenv("user"), os.getenv("password")
+    print(os.getenv("HOST"))
+    print(os.getenv("DATABASE"))
+    print(os.getenv("USERNAME"))
+    print(os.getenv("PASSWD"))
+    
+    # host="localhost", database="clinicamedica", user="root", password=None, port=3306
+    conn = mysql.connector.connect(host="localhost", database="clinicamedica", user="root", password=None, port=3306)
     if conn.is_connected():
         print("conectado")
         print(conn.get_server_info())
