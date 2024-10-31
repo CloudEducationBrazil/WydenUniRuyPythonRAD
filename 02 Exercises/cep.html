@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="idCEP" id="idCEP" placeholder= "Informe o CEP" />
+    <input type="button" value="Buscar" onclick="buscarCEP()" />
+    <pre id="idArea"></pre>
+    
+    <script> 
+        function buscarCEP() { // no HTML acrescentar: input:text; input:button; pre
+            let inputCEP = document.getElementById("idCEP").value
+        const ajax = new XMLHttpRequest()
+        ajax.open("GET", "https://viacep.com.br/ws/" + inputCEP + "/json/")
+        ajax.send()
+        ajax.onload = function(){  
+                let objCEP = JSON.parse(this.responseText)
+                let lograd = objCEP.logradouro
+                let bairro = objCEP.bairro
+                let uf = objCEP.uf
+                document.getElementById("idArea").innerHTML = 
+                "Endereço: " + lograd + "<br>Bairro: " + bairro + "<br>UF: " +uf}}
+    </script>
+ </body>
+</html>
