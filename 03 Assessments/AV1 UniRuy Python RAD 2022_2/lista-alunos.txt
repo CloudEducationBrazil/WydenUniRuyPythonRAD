@@ -1,1 +1,0 @@
-['julia', '12', 'eng comput'],['paulo', '13', 'eng eletrica'],['josy', '14', 'nutrição']

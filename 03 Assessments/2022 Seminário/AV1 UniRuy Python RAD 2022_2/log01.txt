@@ -1,0 +1,7 @@
+log de dados do sistema
+Seu saldo disponivel é R$ 0
+Você realizou o saque no valor de R$ 0 
+ 
+ 
+Seu saldo disponivel é R$ 0
+.Fim do log!

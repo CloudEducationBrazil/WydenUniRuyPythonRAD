@@ -1,0 +1,26 @@
+https://github.com/TrMiguelTr/Projeto-de-python
+
+https://github.com/luanmasao/projetopythonrad
+https://github.com/luanmasao/projetopythonrad
+
+https://github.com/rickstevenandrade/controle-despesas
+https://github.com/rickstevenandrade/controle-despesas
+
+https://github.com/luanmasao/projetopythonrad/blob/main/configurar_banco.py
+
+https://github.com/Brun04ss1s/ProjetoPythonRad
+https://github.com/viniciusdossantosss/GESTOR-DE-TAREFAS
+https://github.com/lealhenriq/trabalhopythonrad
+https://github.com/beatrizrabelo/projeto-widen-python
+
+
+https://github.com/XDChaves/Kyube-Project
+LINK DO PROJETO EM ATIVIDADE: http://34.29.144.155:8000
+*O site vai estar no ar por tempo limitado até o período de teste do Google Cloud
+finalizar. Eu utilizei o GCloud para o banco de dados e para o deploy
+
+Desenvolvido por Everton Mutti - 202103266274.
+Link do gitHub: https://github.com/EvertonMutti/hospital_management/tree/main
+Link da api na vercel: https://hospital-management-cyfq.vercel.app/
+
+

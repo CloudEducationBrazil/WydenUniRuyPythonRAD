@@ -1,0 +1,23 @@
+-- Python RAD
+https://github.com/ArsenioMendes/Rad-Uniruy 
+
+https://github.com/Jorsanzx/Demonstrativo-de-pagamento
+
+https://github.com/viniciusantos2105/PythonRAD
+
+https://github.com/dratz08/pythonRAD -- Lucca Dratovsky
+http://dratovsky.pythonanywhere.com/
+Login ADM: Julia dos Santos Fraga
+Senha ADM:123
+Login comum: Marcelo Rezende
+Senha comum: 123
+
+https://vamola-22110c9156ce.herokuapp.com/
+
+-- Raphael Figliuolo 
+http://dratovsky.pythonanywhere.com/
+https://github.com/RafaelFN1230/AV-Python-RAD/invitations
+
+-- PHP
+https://github.com/VinnyRM/phpcrud
+
