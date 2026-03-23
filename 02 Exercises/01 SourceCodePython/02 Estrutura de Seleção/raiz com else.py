@@ -4,8 +4,8 @@ print('==X'*30)
 n = int(input ('insira um numero para fazer o calculo:'))
 t = n * 3
 r = n ** (1/2)
-cau = input('Insira qual tipo de calculo você deseja fazer (Triplo ou Raiz quadradra):')
-if cau == 'Triplo':
+cau = input('Insira qual tipo de calculo você deseja fazer (1 - Triplo ou 2 - Raiz quadradra):')
+if cau == '1': # Triplo
     print('O Triplo de {} vale {}:'.format(n, t))
 else:
     cau == 'Raiz quadrada'

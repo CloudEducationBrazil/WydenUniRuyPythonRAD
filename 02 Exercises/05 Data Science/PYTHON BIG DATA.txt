@@ -1,0 +1,1 @@
+Python é uma das linguagens líderes para Big Data, oferecendo bibliotecas poderosas para processar grandes volumes de dados de forma eficiente. Ferramentas como PySpark (para processamento distribuído), Dask (para computação paralela) e Pandas com técnica de chunks permitem analisar terabytes de dados, mesmo em máquinas com recursos limitados
