@@ -1,0 +1,9 @@
+import ctypes;
+val = 35 # Valor
+x = id(val) # Recupera a identidade de "Valor" (endereço de memória)
+# A partir da identidade de "Valor" eh possivel recuperar o seu conteúdo
+y = ctypes.cast( x, ctypes.py_object).value
+print(val) # conteúdo de val
+print(id(x)) # endereço de memória da variável x
+print(x) # identidade de valor, endereço de memória da variável val
+print(y) # conteúdo de y que é o mesmo de val

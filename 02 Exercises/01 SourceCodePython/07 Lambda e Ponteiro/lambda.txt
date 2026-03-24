@@ -1,0 +1,9 @@
+x = lambda a, b : a + 10 * b
+print(x(3, 2))
+
+####################################################################
+
+def funcAux(n):
+  return lambda a : a * n
+dobro = funcAux(2)
+print(dobro(11))
