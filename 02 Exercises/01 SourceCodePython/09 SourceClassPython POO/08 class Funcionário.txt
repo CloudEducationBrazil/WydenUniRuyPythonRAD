@@ -1,0 +1,38 @@
+class Funcionario:
+    def __init__(self, nome, cargo, valor_hora_trabalhada): #construtor
+        self.nome = nome # public
+        self.cargo = cargo # public
+        self.valor_hora_trabalhada = valor_hora_trabalhada # public
+        self.__horas_trabalhadas = 0 # private
+        self.__salario = 0  # private
+
+    @property # decoradores, equivalente a um get()
+    def salario(self): # pertence a class Funcionario, para exibir o artibuto
+        return self.__salario
+
+    @salario.setter # decoradores, equivalente a um set()
+    def salario(self, novo_salario): # pertence a class Funcionario
+        raise ValueError("Impossivel alterar salario diretamente. Use a função calcula_salario().")
+
+    def registra_hora_trabalhada(self): # pertence a class Funcionario
+        self.__horas_trabalhadas += 1
+
+    def calcula_salario(self): # pertence a class Funcionario
+        self.__salario = self.__horas_trabalhadas * self.valor_hora_trabalhada
+
+juju = Funcionario("Julia", "Digital Influencer", 180) # instância
+
+for x in range(5):
+  juju.registra_hora_trabalhada()
+
+juju.calcula_salario()
+
+print(juju.valor_hora_trabalhada)
+print(juju.salario)
+
+# juju.__salario = 700
+# juju.salario = 700
+print(juju.salario)
+
+# print(juju.salario)
+# print(juju._Funcionario__salario)

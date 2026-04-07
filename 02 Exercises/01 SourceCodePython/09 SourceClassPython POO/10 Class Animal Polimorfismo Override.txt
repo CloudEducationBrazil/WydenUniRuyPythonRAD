@@ -1,0 +1,28 @@
+def fazerAnimalFalar(animal):
+    print(animal.falar())
+
+class Animal:
+    def falar(self):
+        pass
+
+class Cachorro(Animal):
+    def falar(self):
+        return "Au au!"
+
+class Gato(Animal):
+    def falar(self):
+        return "Miau!"
+
+class Pato(Animal):
+    def falar(self):
+        return "Quá quá!"
+
+cachorro = Cachorro()
+gato = Gato()
+pato = Pato()
+
+# Chamando a função que faz os animais falarem
+fazerAnimalFalar(cachorro)  # Saída: Au au!
+fazerAnimalFalar(gato)      # Saída: Miau!
+fazerAnimalFalar(pato)      # Saída: Quá quá!
+

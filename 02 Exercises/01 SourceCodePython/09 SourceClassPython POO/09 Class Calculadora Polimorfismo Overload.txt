@@ -1,0 +1,18 @@
+class Calculadora:
+    def calcular(self, x, y=None, z=None):
+        if z is not None:
+            return x + y + z
+        elif y is not None:
+            return x + y
+        else:
+            return x
+
+calc = Calculadora()
+
+resultado1 = calc.calcular(1)
+resultado2 = calc.calcular(2, 3)
+resultado3 = calc.calcular(4, 5, 6)
+
+print(resultado1)  # Saída: 1
+print(resultado2)  # Saída: 5
+print(resultado3)  # Saída: 15
