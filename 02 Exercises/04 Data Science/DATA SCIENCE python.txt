@@ -7,7 +7,7 @@ display(entidade)
 print(entidade.info())
 #entidade.head()
 
-# 3. analise explaratoria
+# 3. analise exploratória
 
 # display(entidade.corr())
 #correlacao = entidade.corr()

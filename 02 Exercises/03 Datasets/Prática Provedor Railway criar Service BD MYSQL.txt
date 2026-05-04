@@ -1,0 +1,180 @@
+// Prática: Provedor Railway criar Service BD MYSQL
+
+// Entidade USER: id SERIAL; name TEXT; idade INTEGER
+
+// Google COLAB - Backend
+
+!pip install mysql-connector-python
+
+// versão
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+cur.execute("SELECT VERSION();")
+print(cur.fetchone())
+
+cur.close()
+conn.close()
+
+// bd
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+
+cur.execute("SELECT DATABASE();")
+banco = cur.fetchone()[0]
+
+print("Conectado ao banco de dados:", banco)
+
+cur.close()
+conn.close()
+
+print("Conexão encerrada")
+
+// select
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+
+cur.execute("SELECT * FROM `user`;")
+linhas = cur.fetchall()
+
+print("Registros da tabela user:")
+for linha in linhas:
+    print(linha)
+
+cur.close()
+conn.close()
+
+print("Conexão encerrada")
+
+// insert
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+
+nome = input("Digite o nome: ")
+idade = int(input("Digite a idade: "))
+
+sql = "INSERT INTO `user` (name, idade) VALUES (%s, %s);"
+cur.execute(sql, (nome, idade))
+
+conn.commit()
+print("Inserido com sucesso!")
+
+cur.close()
+conn.close()
+
+// update
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+
+id_user = int(input("Digite o ID do usuário que deseja atualizar: "))
+
+# Verifica se existe antes de pedir os outros dados
+cur.execute("SELECT id, name, idade FROM `user` WHERE id = %s;", (id_user,))
+resultado = cur.fetchone()
+
+if resultado is None:
+    print("ID não encontrado. Nenhum usuário com esse ID.")
+else:
+    print("Usuário encontrado:", resultado)
+
+    novo_nome = input("Digite o novo nome: ")
+    nova_idade = int(input("Digite a nova idade: "))
+
+    sql = "UPDATE `user` SET name = %s, idade = %s WHERE id = %s;"
+    cur.execute(sql, (novo_nome, nova_idade, id_user))
+    conn.commit()
+
+    print("Atualizado com sucesso!")
+
+cur.close()
+conn.close()
+
+print("Conexão encerrada")
+
+// delete
+
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="tramway.proxy.rlwy.net",
+    port=55014,
+    user="root",
+    password="jSaQXTanXzgrKhKubXrqLKJuWorAPBUG",
+    database="railway"
+)
+
+cur = conn.cursor()
+
+id_user = int(input("Digite o ID do usuário que deseja deletar: "))
+
+# Verifica se existe antes de deletar
+cur.execute("SELECT id, name, idade FROM `user` WHERE id = %s;", (id_user,))
+resultado = cur.fetchone()
+
+if resultado is None:
+    print("ID não encontrado. Nenhum usuário com esse ID.")
+else:
+    print("Usuário encontrado:", resultado)
+
+    confirmar = input("Tem certeza que deseja deletar? (s/n): ").lower()
+
+    if confirmar == "s":
+        cur.execute("DELETE FROM `user` WHERE id = %s;", (id_user,))
+        conn.commit()
+        print("Usuário deletado com sucesso!")
+    else:
+        print("Operação cancelada.")
+
+cur.close()
+conn.close()
+
+print("Conexão encerrada")
