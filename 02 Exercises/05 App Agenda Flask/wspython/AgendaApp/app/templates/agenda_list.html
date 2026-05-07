@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Relatório - Lista de Agenda</h3>
+
+<a class="btn" href="{{ url_for('agenda.nova_agenda') }}">+ Nova Agenda</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Realizada</th>
+        <th>Ações</th>
+    </tr>
+
+    {% for item in registros %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.data.strftime("%d/%m/%Y") }}</td>
+        <td>{{ item.descricao }}</td>
+        <td>{{ "Sim" if item.realizada else "Não" }}</td>
+        <td>
+            <a href="{{ url_for('agenda.editar_agenda', id=item.id) }}">Editar</a>
+            |
+            <a href="{{ url_for('agenda.excluir_agenda', id=item.id) }}"
+               onclick="return confirm('Deseja excluir?')">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

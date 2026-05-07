@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>{{ "Editar Agenda" if agenda else "Nova Agenda" }}</h3>
+
+<form method="POST">
+    <label>Data</label>
+    <input type="date" name="data" value="{{ agenda.data if agenda else '' }}" required>
+
+    <label>Descrição</label>
+    <input type="text" name="descricao" value="{{ agenda.descricao if agenda else '' }}" required>
+
+    <label>
+        <input type="checkbox" name="realizada" {% if agenda and agenda.realizada %}checked{% endif %}>
+        Realizada?
+    </label>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<br>
+<a href="{{ url_for('agenda.listar_agenda') }}">Voltar</a>
+
+{% endblock %}
