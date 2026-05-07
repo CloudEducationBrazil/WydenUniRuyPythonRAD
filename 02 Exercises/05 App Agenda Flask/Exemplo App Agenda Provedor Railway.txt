@@ -1,0 +1,64 @@
+#  Rodar app no browser
+https://appagendapy-production.up.railway.app/login
+
+# Instalar no notebook SERVER BD PostGres - DOWNLOAD
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+# Instalar no notebook IDE BD PostGres - DOWNLOAD
+https://www.pgadmin.org/download/pgadmin-4-windows/
+
+# Conectar no PostGres
+Criar BD VAZIO agendadb
+
+# Instalar no notebook versão Python - DOWNLOAD
+https://www.python.org/downloads/release/python-31115/
+
+# Depois de instalar, testar CMD:
+
+python -m venv venv # OU py -m venv venv
+
+# Windows CMD
+venv\Scripts\activate
+
+python --version
+
+# IDE VS Code - DOWNLOAD
+https://code.visualstudio.com/thank-you?dv=winzip
+ 
+# Criar uma Pasta WS de trabalho de Projetos
+download do projeto: https://github.com/CloudEducationBrazil/appagendapy
+descompactar na pasta de trabalho de Projetos
+carregar a IDE VS Code
+importar na IDE VS Code
+
+# Instalar dependências
+```bash - Abrir Terminal
+
+pip install -r requirements.txt
+
+# Se erro
+python -m pip install -r requirements.txt
+
+python.exe -m pip install --upgrade pip
+
+# Ainda no Terminal, configurar variáveis de ambiente
+Copie `.env.example` para `.env` e ajustar:
+  
+  SECRET_KEY=jujukey, sua escolha
+ DATABASE_URL=. para a conexão do seu BD PostGres
+
+# Rodar migrations
+```bash no Terminal
+flask db init
+flask db migrate -m "init"
+flask db upgrade
+
+# Criar usuário admin (seed)
+```bash no Terminal
+python seed_admin.py
+
+# Rodar
+```bash no Terminal
+python run.py
+
+Acesse no Browser: http://localhost:5000
