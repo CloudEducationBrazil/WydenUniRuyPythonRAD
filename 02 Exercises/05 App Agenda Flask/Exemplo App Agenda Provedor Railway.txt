@@ -1,64 +1,79 @@
 #  Rodar app no browser
 https://appagendapy-production.up.railway.app/login
 
-# Instalar no notebook SERVER BD PostGres - DOWNLOAD
+0. No Railway
+1. Criar Service BD PostGres
+2. Criar Service Deploy da Aplicação com GitHub
+2.1. Na aba Variables: Atualizar a variável DATABASE_URL com o connect String -> Public Network -> Connection URL do PostGres
+2.2. Na aba Settings OPÇÃO Deploy -> Custom start Command, incluir:
+flask db upgrade && python seed_admin.py && gunicorn --bind 0.0.0.0:$PORT run:app
+3. Na aba Settings OPÇÃO Networking -> Public Networking
+Clicar em create Domain - será criada a URL da aplicação para rodar no browser
+
+# 1. Instalar no notebook SERVER BD PostGres - DOWNLOAD
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 
-# Instalar no notebook IDE BD PostGres - DOWNLOAD
+# 2. Instalar no notebook IDE BD PostGres - DOWNLOAD
 https://www.pgadmin.org/download/pgadmin-4-windows/
 
-# Conectar no PostGres
-Criar BD VAZIO agendadb
+# 3. Conectar no PostGres
+Criar no PostGress BD VAZIO agendadb
 
-# Instalar no notebook versão Python - DOWNLOAD
+# 4. Instalar no notebook versão Python - DOWNLOAD
 https://www.python.org/downloads/release/python-31115/
 
-# Depois de instalar, testar CMD:
-
-python -m venv venv # OU py -m venv venv
-
-# Windows CMD
-venv\Scripts\activate
-
+# 5. Depois de instalar, testar a versão do python no CMD:
 python --version
 
-# IDE VS Code - DOWNLOAD
+# 6. IDE no notebook VSCode - DOWNLOAD arquivo zipado
 https://code.visualstudio.com/thank-you?dv=winzip
- 
-# Criar uma Pasta WS de trabalho de Projetos
-download do projeto: https://github.com/CloudEducationBrazil/appagendapy
-descompactar na pasta de trabalho de Projetos
-carregar a IDE VS Code
-importar na IDE VS Code
 
-# Instalar dependências
+6.1. Descompactar IDE
+
+# 7. Criar uma Pasta WS no notebook para Projetos Python
+
+7.1. Download, clonar, do projeto: https://github.com/CloudEducationBrazil/appagendapy
+7.2. descompactar na pasta de trabalho de Projetos WS
+7.3. carregar a IDE VSCode
+7.4. importar o projeto na IDE VSCode
+
+# 8. Terminal VSCode
+
+8.1. python -m venv venv # OU py -m venv venv
+8.2. venv\Scripts\activate
+
+# 9. Terminal VSCode Instalar dependências
 ```bash - Abrir Terminal
 
-pip install -r requirements.txt
+9.1 pip install -r requirements.txt
 
-# Se erro
-python -m pip install -r requirements.txt
+# 10. Se der erro
 
-python.exe -m pip install --upgrade pip
+10.1. python -m pip install -r requirements.txt
+10.2. python.exe -m pip install --upgrade pip
 
-# Ainda no Terminal, configurar variáveis de ambiente
-Copie `.env.example` para `.env` e ajustar:
+# 11. Terminal VSCode, configurar variáveis de ambiente:
+
+11.1. Copie env.example para .env, ajustar as variáveis no arquivo na IDE VSCode:
   
-  SECRET_KEY=jujukey, sua escolha
- DATABASE_URL=. para a conexão do seu BD PostGres
+ SECRET_KEY=jujukey, sua escolha
+ DATABASE_URL= conexão do seu BD LOCAL PostGres
 
-# Rodar migrations
+# 12. Terminal do VSCode Rodar migrations
 ```bash no Terminal
-flask db init
-flask db migrate -m "init"
-flask db upgrade
 
-# Criar usuário admin (seed)
+12.1 flask db init
+12.2 flask db migrate -m "init"
+12.3 flask db upgrade
+
+# 13. Terminal do VSCode Criar usuário admin (seed)
 ```bash no Terminal
-python seed_admin.py
 
-# Rodar
+13.1. python seed_admin.py
+
+# 14. Terminal VSCode Rodar
 ```bash no Terminal
-python run.py
 
-Acesse no Browser: http://localhost:5000
+14.1 python run.py
+
+15. Rodar no Browser: http://127.0.0.1:5000 ou http://localhost:5000
